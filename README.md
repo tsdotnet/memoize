@@ -8,4 +8,4 @@ A utility for creating an iteratively cached (memoized) result of an iterable.
 
 ## Docs
 
-[tsdotnet.github.io/memoize](https://tsdotnet.github.io/memoize/)
+[tsdotnet.github.io/memoize](https://tsdotnet.github.io/memoize/modules/_memoized_.html)
