@@ -4,7 +4,7 @@
 ![npm-publish](https://github.com/tsdotnet/memoize/workflows/npm-publish/badge.svg)
 [![npm version](https://img.shields.io/npm/v/@tsdotnet/memoize.svg?style=flat-square)](https://www.npmjs.com/package/@tsdotnet/memoize)
 
-
+A utility for creating an iteratively cached (memoized) result of an iterable.
 
 ## Docs
 
