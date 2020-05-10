@@ -4,6 +4,8 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+// https://stackoverflow.com/questions/12766422/why-is-a-javascript-array-index-at-most-4294967294-but-not-4294967295
+const MAX_ARRAY_LENGTH = 4294967295;
 /**
  * A class for caching iterated results.
  */
@@ -25,7 +27,7 @@ class Memoized {
      * @return {boolean} True if the index has cached value.
      */
     hasCached(index) {
-        return isFinite(index) && index < this._cached.length;
+        return index < this._cached.length && index < MAX_ARRAY_LENGTH;
     }
     /**
      * Ensures an index is cached (true) or returns false if the index exceeds the number items.
@@ -33,7 +35,7 @@ class Memoized {
      * @return {boolean} True if the index was cached.
      */
     ensure(index) {
-        if (!isFinite(index))
+        if (index >= MAX_ARRAY_LENGTH)
             return false;
         const c = this._cached;
         while (c.length <= index && !this.next().done) 
