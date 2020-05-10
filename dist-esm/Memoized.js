@@ -23,7 +23,7 @@ export class Memoized {
      * @return {boolean} True if the index has cached value.
      */
     hasCached(index) {
-        return index < this._cached.length;
+        return isFinite(index) && index < this._cached.length;
     }
     /**
      * Ensures an index is cached (true) or returns false if the index exceeds the number items.
@@ -31,6 +31,8 @@ export class Memoized {
      * @return {boolean} True if the index was cached.
      */
     ensure(index) {
+        if (!isFinite(index))
+            return false;
         const c = this._cached;
         while (c.length <= index && !this.next().done) 
         // eslint-disable-next-line no-empty
@@ -55,7 +57,7 @@ export class Memoized {
         const ok = this.ensure(index);
         if (ok)
             out(this._cached[index]);
-        return index < this._cached.length;
+        return ok;
     }
     *[Symbol.iterator]() {
         const c = this._cached;
