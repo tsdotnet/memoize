@@ -58,6 +58,19 @@ export class Memoized<T>
 		return this.ensure(index) ? this._cached[index] : undefined;
 	}
 
+	/**
+	 * Returns true if the value was acquired and passed to the out delegate.
+	 * @param {number} index The index to lookup.
+	 * @param {(e: T) => void} out A delegate function to receive the value if available.
+	 * @return {boolean} True if the delegate was given a value.
+	 */
+	tryGet (index: number, out: (e: T) => void): boolean
+	{
+		const ok = this.ensure(index);
+		if(ok) out(this._cached[index]);
+		return index<this._cached.length;
+	}
+
 	* [Symbol.iterator] (): Iterator<T>
 	{
 		const c = this._cached;
