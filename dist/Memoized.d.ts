@@ -32,6 +32,13 @@ export declare class Memoized<T> implements Iterable<T>, Iterator<T> {
      * @return
      */
     get(index: number): T | undefined;
+    /**
+     * Returns true if the value was acquired and passed to the out delegate.
+     * @param {number} index The index to lookup.
+     * @param {(e: T) => void} out A delegate function to receive the value if available.
+     * @return {boolean} True if the delegate was given a value.
+     */
+    tryGet(index: number, out: (e: T) => void): boolean;
     [Symbol.iterator](): Iterator<T>;
     /**
      * Calls next on the iterator and caches the result.
