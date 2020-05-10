@@ -31,7 +31,7 @@ export class Memoized<T>
 	 */
 	hasCached (index: number): boolean
 	{
-		return index<this._cached.length;
+		return isFinite(index) && index<this._cached.length;
 	}
 
 	/**
@@ -41,6 +41,7 @@ export class Memoized<T>
 	 */
 	ensure (index: number): boolean
 	{
+		if(!isFinite(index)) return false;
 		const c = this._cached;
 		while(c.length<=index && !this.next().done)
 			// eslint-disable-next-line no-empty
@@ -68,7 +69,7 @@ export class Memoized<T>
 	{
 		const ok = this.ensure(index);
 		if(ok) out(this._cached[index]);
-		return index<this._cached.length;
+		return ok;
 	}
 
 	* [Symbol.iterator] (): Iterator<T>
