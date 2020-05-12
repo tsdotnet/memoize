@@ -65,19 +65,14 @@ class Memoized {
     }
     *[Symbol.iterator]() {
         const c = this._cached;
-        let i = 0;
+        let i = 0, done = false;
         do {
-            for (; i < c.length; i++)
-                yield c[i];
-            const iterator = this._iterator;
-            if (!iterator)
-                break;
-            const n = iterator.next();
-            if (n.done)
-                break;
-            i++;
-            yield n.value;
-        } while (true);
+            // always pull from the cache as multiple iterators could be active.
+            while (i < c.length)
+                yield c[i++];
+            if (!this._iterator || this.next().done)
+                done = true;
+        } while (!done || i < c.length);
     }
     /**
      * Calls next on the iterator and caches the result.
