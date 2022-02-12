@@ -10,7 +10,7 @@ const MAX_ARRAY_LENGTH = 4294967295;
  * A class for caching iterated results.
  */
 export class Memoized<T>
-	implements Iterable<T>, Iterator<T>
+implements Iterable<T>, Iterator<T>
 {
 	private _iterator: Iterator<T> | null;
 	private readonly _cached: T[];
@@ -47,7 +47,7 @@ export class Memoized<T>
 		if(index>=MAX_ARRAY_LENGTH) return false;
 		const c = this._cached;
 		while(c.length<=index && !this.next().done)
-			// eslint-disable-next-line no-empty
+		// eslint-disable-next-line no-empty
 		{}
 		return index<c.length;
 	}
