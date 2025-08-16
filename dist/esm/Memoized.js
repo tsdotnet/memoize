@@ -1,17 +1,13 @@
-"use strict";
 /*!
  * @author electricessence / https://github.com/electricessence/
  * Licensing: MIT
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Memoized = void 0;
-exports.default = memoize;
 // https://stackoverflow.com/questions/12766422/why-is-a-javascript-array-index-at-most-4294967294-but-not-4294967295
 const MAX_ARRAY_LENGTH = 4294967295;
 /**
  * A class for caching iterated results.
  */
-class Memoized {
+export class Memoized {
     _iterator;
     _cached;
     /**
@@ -94,13 +90,12 @@ class Memoized {
         return next;
     }
 }
-exports.Memoized = Memoized;
 /**
  * Returns a Memoized<T> for caching results of an iterable.
  * @param {Iterable} source
  * @return {Memoized}
  */
-function memoize(source) {
+export default function memoize(source) {
     return new Memoized(source);
 }
 //# sourceMappingURL=Memoized.js.map
