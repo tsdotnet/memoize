@@ -8,6 +8,8 @@ const MAX_ARRAY_LENGTH = 4294967295;
  * A class for caching iterated results.
  */
 export class Memoized {
+    _iterator;
+    _cached;
     /**
      * Constructs a Memoized<T> that caches the results of the source.
      * Providing a

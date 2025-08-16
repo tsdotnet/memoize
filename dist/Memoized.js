@@ -5,12 +5,15 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Memoized = void 0;
+exports.default = memoize;
 // https://stackoverflow.com/questions/12766422/why-is-a-javascript-array-index-at-most-4294967294-but-not-4294967295
 const MAX_ARRAY_LENGTH = 4294967295;
 /**
  * A class for caching iterated results.
  */
 class Memoized {
+    _iterator;
+    _cached;
     /**
      * Constructs a Memoized<T> that caches the results of the source.
      * Providing a
@@ -100,5 +103,4 @@ exports.Memoized = Memoized;
 function memoize(source) {
     return new Memoized(source);
 }
-exports.default = memoize;
 //# sourceMappingURL=Memoized.js.map
