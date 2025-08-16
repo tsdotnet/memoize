@@ -8,8 +8,11 @@
   "main": "dist/Memoized.js",
   "module": "dist/Memoized.mjs",
   "exports": {
-    "import": "./dist/Memoized.mjs",
-    "require": "./dist/Memoized.js"
+    ".": {
+      "import": "./dist/Memoized.mjs",
+      "require": "./dist/Memoized.js",
+      "types": "./dist/Memoized.d.ts"
+    }
   },
   "keywords": [
     "iterable",
