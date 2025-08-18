@@ -71,7 +71,7 @@ implements Iterable<T>, Iterator<T>
 	tryGet (index: number, out: (e: T) => void): boolean
 	{
 		const ok = this.ensure(index);
-		if(ok) out(this._cached[index]);
+		if(ok) out(this._cached[index]!);
 		return ok;
 	}
 
@@ -83,7 +83,7 @@ implements Iterable<T>, Iterator<T>
 		do
 		{
 			// always pull from the cache as multiple iterators could be active.
-			while(i<c.length) yield c[i++];
+			while(i<c.length) yield c[i++]!;
 			if(!this._iterator || this.next().done) done = true;
 		}
 		while(!done || i<c.length);
