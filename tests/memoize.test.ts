@@ -17,7 +17,7 @@ function checkFullyCached<T> (list: Memoized<number>): void
 	expect(list.hasCached(i)).toBe(true);
 	for(const n of list)
 	{
-		if(!expect(i).toBeLessThan(MAX)) return;
+		expect(i).toBeLessThan(MAX); // Guard against infinite loop
 		expect(n).equal(i);
 		expect(list.hasCached(i)).toBe(true);
 		i++;
@@ -40,7 +40,7 @@ describe('Memoized', () => {
 		expect(list.hasCached(i)).toBe(false);
 		for(const n of list)
 		{
-			if(!expect(i).toBeLessThan(MAX)) return;
+			expect(i).toBeLessThan(MAX); // Guard against infinite loop
 			expect(n).equal(i);
 			expect(list.hasCached(i)).toBe(true);
 			i++;
@@ -58,7 +58,7 @@ describe('Memoized', () => {
 		expect(list.hasCached(i)).toBe(false);
 		for(const n of list)
 		{
-			if(!expect(i).toBeLessThan(MAX)) return;
+			expect(i).toBeLessThan(MAX); // Guard against infinite loop
 			expect(list.hasCached(i)).toBe(true);
 			expect(list.tryGet(i, v => expect(v).equal(i))).toBe(true);
 			expect(n).equal(i);
