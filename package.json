@@ -1,6 +1,6 @@
 {
   "name": "@tsdotnet/memoize",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A utility for creating an iteratively cached (memoized) result of an iterable.",
   "author": "electricessence",
   "license": "MIT",
