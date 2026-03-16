@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import memoize, {Memoized} from '../src/Memoized';
+import memoize, {Memoized} from '../src/Memoized.js';
 
 const MAX = 20;
 
