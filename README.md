@@ -1,4 +1,4 @@
-![@tsdotnet/memoize: Iterate once. Read again. Cache what any iterable yields.](https://cdn.jsdelivr.net/gh/tsdotnet/memoize@master/assets/banner.svg)
+<a href="https://tsdotnet.github.io/memoize/"><img src="https://cdn.jsdelivr.net/gh/tsdotnet/memoize@master/assets/banner.svg" alt="@tsdotnet/memoize: Iterate once. Read again. Cache what any iterable yields."></a>
 
 [![npm version](https://img.shields.io/npm/v/@tsdotnet/memoize.svg?style=flat-square)](https://www.npmjs.com/package/@tsdotnet/memoize)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/tsdotnet/memoize/blob/master/LICENSE)
